@@ -16,7 +16,7 @@ def register_user(user:CreateUsersRequest,db:Session=Depends(get_db)):
     
     return create_user(
         db,
-        username=user.usename,
+        username=user.username,
         email=user.email,
         password=user.password,
         phone_number=user.phone_number

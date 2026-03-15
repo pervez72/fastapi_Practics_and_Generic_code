@@ -4,7 +4,7 @@ from requests import Session
 from app.auth.dependency import get_current_user
 from app.auth.models import Users
 from app.database.database import get_db
-from app.todo.schemas import CreateTodoRequet
+from app.todo.schemas import CreateTodoRequet,CreateTodoResponse
 from app.todo.servics import create_todo, get_user_todo
 
 

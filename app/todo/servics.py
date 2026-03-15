@@ -1,7 +1,7 @@
 from requests import Session
 
 from app.todo.models import ToDo
-from app.todo.schemas import CreateTodoRequet,CreateTodoResponse
+from app.todo.schemas import CreateTodoRequet
 
 
 def create_todo(db:Session,create_todo:CreateTodoRequet,user_id:int):
@@ -9,6 +9,7 @@ def create_todo(db:Session,create_todo:CreateTodoRequet,user_id:int):
         title=create_todo.title,
         description=create_todo.description,
         priority=create_todo.priority,
+        completed=create_todo.completed,
         owner_id=user_id
     )
     

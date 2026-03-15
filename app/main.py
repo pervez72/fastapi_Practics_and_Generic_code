@@ -7,32 +7,15 @@ app=FastAPI()
 
 
 
-@app.get("/")
-def cheack():
-    return {"fine"}
+@app.get("/helthy")
+async def health_check():
+    return {"status": "helthy"}
 
 
-# Base.metadata.create_all(bind=engine)
+
+# Base.metadata.create_all(bind=engine) // its not use, beacuse i use alembic,so its line not use 
 
 app.include_router(auth_routers.router)
 app.include_router(to_routers.router)
 
 
-
-# ====================
-# 2️⃣ main app এ দুইটা model import করতে হবে
-
-# SQLAlchemy যেন দুইটা table register করতে পারে।
-
-# main.py
-
-# from app.database.database import Base
-# from app.auth import models as auth_models
-# from app.todo import models as todo_models
-
-# এই import খুব important।
-
-# কারণ SQLAlchemy তখন জানবে:
-
-# users table
-# todo table
