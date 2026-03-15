@@ -7,9 +7,10 @@ app=FastAPI()
 
 
 
-app.get("/healthy")
-def helth_check():
-    return{"Status":"helthy"}
+@app.get("/helthy")
+async def health_check():
+    return {"status": "helthy"}
+
 
 
 # Base.metadata.create_all(bind=engine) // its not use, beacuse i use alembic,so its line not use 
