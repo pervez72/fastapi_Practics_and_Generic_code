@@ -2,7 +2,7 @@ from app.auth.models import Users
 from pydantic import BaseModel
 
 class CreateUsersRequest(BaseModel):
-    usename:str
+    username:str
     email:str
     password:str
     phone_number:str

@@ -1,3 +1,6 @@
+import pytest
+
+
 def test_equal_or_not_equal():
 
     assert 3==3
@@ -32,9 +35,28 @@ def test_list():
     data = [1, 2, 3, 4]
 
     assert len(data) == 4
-    assert 3 in dataList Check
-def test_list():
-    data = [1, 2, 3, 4]
-
-    assert len(data) == 4
     assert 3 in data
+
+
+# object and fixture 
+
+class Student:
+    def __init__(self,first_name:str,last_name:str,mejor:str,year:int):
+        self.first_name=first_name
+        self.last_name=last_name
+        self.mejor=mejor
+        self.year=year
+
+
+@pytest.fixture
+def defult_emp():
+    return Student('pervez','hasan','cse',2020)
+
+
+
+def test_person_initilization_data(defult_emp):
+
+    assert defult_emp.first_name=='pervez','this is first name '
+    assert defult_emp.last_name=='hasan','this is last name'
+    assert defult_emp.mejor=='cse'
+    assert defult_emp.year==2020
